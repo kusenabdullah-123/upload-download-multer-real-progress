@@ -1,0 +1,110 @@
+/* fallback */
+
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url("font/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2") format("woff2");
+  font-display: swap;
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  /* -webkit-font-feature-settings: "liga"; */
+  -webkit-font-smoothing: antialiased;
+}
+
+header {
+  height: 50px;
+  background-color: #1565c0;
+}
+
+header .brand {
+  padding-left: 20px;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  box-sizing: border-box;
+  padding-left: 30px;
+  flex: 1 0 auto;
+}
+
+footer {
+  background-color: #1565c0 !important;
+}
+
+.logout {
+  float: right;
+  padding-right: 40px;
+}
+
+.side-active {
+  padding-left: 300px;
+  transition: 0.3s;
+}
+
+.side-pasive {
+  padding-left: 30px;
+  transition: 0.3s;
+}
+
+.cards {
+  border-radius: 5px;
+  height: 90px;
+  width: 250px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards-icon {
+  height: 100%;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards-content {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px;
+}
+
+.cards-content>h5 {
+  margin: 0px;
+  padding: 0px;
+}
+
+.cards-content>p {
+  margin: 0px;
+  padding: 0px;
+}
+
+@media only screen and (max-width: 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}

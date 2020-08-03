@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="preload"
+      href="/public/style/style-dashboard.css"
+      as="style"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/public/style/sweetalert2.min.css" />
+    <link
+      rel="preload"
+      href="/public/style/sweetalert2.min.css"
+      as="style"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/public/style/style-dashboard.css" />
+    <link
+      rel="preload"
+      href="/public/scripts/side.js"
+      crossorigin="anonymous"
+      as="script"
+    />
+    <script defer>
+      const link = document.createElement("link");
+      link.setAttribute("rel", "stylesheet");
+      link.setAttribute("href", "/public/style/materialize.min.css");
+      link.setAttribute("media", "none");
+      link.setAttribute("onload", 'if(media != "all")media="all"');
+      const head = document.querySelector("head");
+      head.insertBefore(link, head[0]);
+    </script>
+    <script defer src="/public/scripts/axios.min.js"></script>
+    <script defer src="/public/scripts/materialize.min.js"></script>
+    <script defer src="/public/scripts/sweetalert2-optimaze.min.js"></script>
+    <style>
+      .hide {
+        display: none;
+      }
+    </style>
+    <title>Storage</title>
+  </head>
+  <body class="">
+    <header class="nav-wrapper">
+      <a href="" class="brand white-text"> Storage </a>
+      <ul class="logout">
+        <li>
+          <a href="" class="white-text">
+            <i class="material-icons">exit_to_app</i></a
+          >
+        </li>
+      </ul>
+    </header>
+    <ul id="slide-out" class="sidenav no-autoinit">
+      <li>
+        <div class="user-view">
+          <div class="background">
+            <img src="/public/images/background.jpeg" />
+          </div>
+          <a href=""><img class="circle" src="/public/images/user.jpeg" /></a>
+          <a href=""><span class="white-text name">John Doe</span></a>
+          <a href=""
+            ><span class="white-text email">jdandturk@gmail.com</span></a
+          >
+        </div>
+      </li>
+      <li><a class="subheader">Barang</a></li>
+      <li>
+        <a href="/barang"
+          ><i class="material-icons">local_mall</i>Master Barang</a
+        >
+      </li>
+    </ul>
+
+    <main>
+      <a href="" data-target="slide-out" class="sidenav-trigger toogle"
+        ><i class="material-icons">menu</i></a
+      >
+      <div class="container">
+        <center><h3>Storage Files</h3></center>
+        <div class="row">
+          <form action="" class="row" id="form-upload">
+            <div class="col m10">
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>File</span>
+                  <input type="file" name="file" id="file" />
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate nama-file" type="text" />
+                </div>
+              </div>
+            </div>
+            <div class="col m2">
+              <button
+                type="submit"
+                class="btn-floating btn-large waves-effect waves-light blue"
+              >
+                <i class="material-icons">file_upload</i>
+              </button>
+            </div>
+          </form>
+          <div class="row">
+            <div class="col m2" id="label-progress">Progress :</div>
+            <div class="col m9">
+              <div class="progress hide" id="progress">
+                <div class="row">
+                  <div class="col m10 progress-bars">
+                    <div class="determinate" id="progress-width"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <table class="responsive-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% data.forEach(({name,size},index)=>{ %>
+              <tr>
+                <td><%= index+1 %></td>
+                <td><%= name %></td>
+                <td><%= Math.floor(size /1024/1024) %> MB</td>
+                <td>
+                  <a
+                    id="download"
+                    href="/<%= name %>"
+                    class="btn-floating btn-small waves-effect waves-light green"
+                    ><i class="material-icons">file_download</i></a
+                  >
+                </td>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <footer class="page-footer">
+      <div class="footer-copyright">
+        <div class="container">
+          © 2014 Copyright Text
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="/public/scripts/scripts.js"></script>
+  </body>
+</html>
