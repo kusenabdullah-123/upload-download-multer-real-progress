@@ -44,7 +44,7 @@
   </head>
   <body class="">
     <header class="nav-wrapper">
-      <a href="" class="brand white-text"> Storage </a>
+      <a href="/" class="brand white-text"> Storage </a>
       <ul class="logout">
         <li>
           <a href="" class="white-text">
@@ -68,7 +68,7 @@
       </li>
       <li><a class="subheader">Barang</a></li>
       <li>
-        <a href="/action"
+        <a href="/barang"
           ><i class="material-icons">local_mall</i>Master Storage</a
         >
       </li>
@@ -78,27 +78,55 @@
       <a href="" data-target="slide-out" class="sidenav-trigger toogle"
         ><i class="material-icons">menu</i></a
       >
-      <div class="row">
-        <% if (data.length <= 0) { %>
-        <h2>Data Kosong</h2>
-        <% } %> <% data.forEach(({name,size})=>{ %>
-        <div class="col s12 m3">
-          <div class="card">
-            <div class="card-content black-text">
-              <span class="card-title">File</span>
-              <p>
-                <%= name %>
-              </p>
-              <p><%= Math.floor(size /1024/1024) %> MB</p>
+      <div class="container">
+        <center><h3>Storage Files</h3></center>
+        <div class="row">
+          <form action="" class="row" id="form-upload">
+            <div class="col m10">
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>File</span>
+                  <input type="file" name="file" id="file" />
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate nama-file" type="text" />
+                </div>
+              </div>
             </div>
-            <div class="card-action">
-              <a href="/action/<%= name %>" class="btn waves-effect waves-light"
-                >Download <i class="material-icons right">file_download</i></a
+            <div class="col m2">
+              <button
+                type="submit"
+                class="btn-floating btn-large waves-effect waves-light blue"
               >
+                <i class="material-icons">file_upload</i>
+              </button>
+            </div>
+          </form>
+          <div class="row">
+            <div class="col m2" id="label-progress">Progress :</div>
+            <div class="col m9">
+              <div class="progress hide" id="progress">
+                <div class="row">
+                  <div class="col m10 progress-bars">
+                    <div class="determinate" id="progress-width"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+          <table class="responsive-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody id="tabel-body"></tbody>
+          </table>
         </div>
-        <% }); %>
       </div>
     </main>
 

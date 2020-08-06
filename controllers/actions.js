@@ -3,21 +3,20 @@ const upload = require("./multer");
 const Files = require("../model/files");
 const path = require("path");
 Router.get("/", async (req, res) => {
-  const data = await Files.find();
-  res.render("dashboard", { data: data });
+  res.render("tambah");
   res.end();
 });
-Router.get("/:name", (req, res) => {
-  res.download(
-    path.join(__dirname, `../uploads/${req.params.name}`),
-    req.params.name,
-    (err) => {
-      if (err) {
-        console.log(err);
-      }
-    }
-  );
-});
+// Router.get("/:name", (req, res) => {
+//   res.download(
+//     path.join(__dirname, `../uploads/${req.params.name}`),
+//     req.params.name,
+//     (err) => {
+//       if (err) {
+//         console.log(err);
+//       }
+//     }
+//   );
+// });
 Router.post("/", (req, res) => {
   try {
     upload(req, res, async (err) => {

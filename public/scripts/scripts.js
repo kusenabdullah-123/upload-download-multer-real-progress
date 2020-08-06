@@ -7,7 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
     onOpenStart: sideActive,
     onCloseStart: sidePasive,
   });
-
+  // const refreshData = async () => {
+  //   const allData = await axios.get("/all-data");
+  //   console.log(allData);
+  // };
+  // refreshData();
   // form submited
   document
     .querySelector("#form-upload")
@@ -44,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     };
     try {
-      const { data } = await axios.post("/", files, config);
+      const { data } = await axios.post("/action", files, config);
       hideElement();
       // status success
       if (data.status === 200) {
